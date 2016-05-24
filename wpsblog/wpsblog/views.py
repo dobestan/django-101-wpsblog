@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 
 
 def home(request):
-    return HttpResponse("hello world")
+    return HttpResponse("<h1>hello world</h1><p>This is home page.</p>")
 
 
 def room(request, room_id):

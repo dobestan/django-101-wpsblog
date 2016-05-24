@@ -1,3 +1,5 @@
+import requests
+
 from django.http.response import HttpResponse
 
 
@@ -6,5 +8,7 @@ def home(request):
 
 
 def room(request, room_id):
-    return HttpResponse("This is a room detail " + room_id)
+    url = "https://api.zigbang.com/v1/items?detail=true&item_ids=" + room_id
+    response = requests.get(url)
+    return HttpResponse(response.content)
 

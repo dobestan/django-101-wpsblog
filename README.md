@@ -8,8 +8,8 @@
 - 다음주 안에 블로그를 정확하게 개발하고, 유사한 프로젝트를 손코딩할 수 있다.
 
 
-## 설치할 패키지
+## 파이썬 패키지 설치
 
 ```
-$ ./python_packages.sh
+$ pip install -r requirements.txt
 ```

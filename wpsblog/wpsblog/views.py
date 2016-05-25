@@ -24,6 +24,13 @@ def news(request):
     news_dict = json.loads(response.text)
     news_list = news_dict.get("news")
 
+    form_html = """
+        <form method="GET" action="/news/">
+            <input type="text" name="search">
+            <input type="submit" value="검색">
+        </form>
+    """
+
     if search:
         news_list = list(filter(
             lambda news: search in news.get('title'),
@@ -32,6 +39,7 @@ def news(request):
 
     content = "<h1>News</h1>" +\
         "<p>This is news page.</p>" +\
+        form_html +\
         "<p>{count} 개의 영화 뉴스 정보가 있습니다.</p>".format(count=len(news_list)) +\
         "".join([
             "<h2>{title}</h2><img src={image_src}><p>{content}</p>".format(

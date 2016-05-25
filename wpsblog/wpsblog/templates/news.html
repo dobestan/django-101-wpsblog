@@ -1,3 +1,5 @@
+{% include "header.html" %}
+
 <h1>News</h1>
 <p>This is movie news</p>
 <p>{{ news_list|length }} 개의 영화 정보가 표시됩니다.</p>
@@ -12,3 +14,5 @@
     </li>
   {% endfor %}
 </ul>
+
+{% include "footer.html" %}

@@ -6,7 +6,11 @@ from django.conf import settings
 
 
 def home(request):
-    return HttpResponse("<h1>hello world</h1><p>This is home page.</p>")
+    with open(settings.BASE_DIR + "/wpsblog/templates/home.html", "r") as template:
+        content = template.read()
+        content = content.replace("## site_name ##", "WPS BLOG")
+
+        return HttpResponse(content)
 
 
 def room(request, room_id):

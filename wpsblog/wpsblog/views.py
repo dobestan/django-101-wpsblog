@@ -4,13 +4,11 @@ import requests
 from django.http.response import HttpResponse
 from django.conf import settings
 
+from wpsblog.renderer import render
+
 
 def home(request):
-    with open(settings.BASE_DIR + "/wpsblog/templates/home.html", "r") as template:
-        content = template.read()
-        content = content.replace("## site_name ##", "WPS BLOG")
-
-        return HttpResponse(content)
+    return render("home", {"site_name": "wps blog"})
 
 
 def room(request, room_id):
@@ -35,23 +33,18 @@ def news(request):
             news_list,
         ))
 
-    with open(settings.BASE_DIR + "/wpsblog/templates/news.html", "r") as template:
-        content = template.read()
-
-        count = len(news_list)
-        news_content = "".join([
-            "<h2>{title}</h2><img src={image_src}><p>{content}</p>".format(
-                title=news.get('title'),
-                image_src=news.get('image'),
-                content=news.get('content'),
-            )
-            for news
-            in news_list
-        ])
-
-        content = content.replace("## count ##", str(count))
-        content = content.replace("## news_content ##", news_content)
-
-        return HttpResponse(
-            content,
+    count = len(news_list)
+    news_content = "".join([
+        "<h2>{title}</h2><img src={image_src}><p>{content}</p>".format(
+            title=news.get('title'),
+            image_src=news.get('image'),
+            content=news.get('content'),
         )
+        for news
+        in news_list
+    ])
+
+    return render("news", {
+        "count": str(count),
+        "news_content": news_content,
+    })

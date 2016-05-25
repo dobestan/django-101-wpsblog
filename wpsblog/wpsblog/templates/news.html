@@ -1,18 +1,22 @@
-{% include "header.html" %}
-
-<h1>News</h1>
-<p>This is movie news</p>
-<p>{{ news_list|length }} 개의 영화 정보가 표시됩니다.</p>
+{% extends "base.html" %}
 
 
-<ul>
-  {% for news in news_list %}
-    <li>
-      <h2>{{ news.title }}</h2>
-      <p>{{ news.content }}</p>
-      <img src="{{ news.image }}"/>
-    </li>
-  {% endfor %}
-</ul>
+{% block title %}News{% endblock %}
 
-{% include "footer.html" %}
+
+{% block content %}
+  <h1>News</h1>
+  <p>This is movie news</p>
+  <p>{{ news_list|length }} 개의 영화 정보가 표시됩니다.</p>
+
+
+  <ul>
+    {% for news in news_list %}
+      <li>
+        <h2>{{ news.title }}</h2>
+        <p>{{ news.content }}</p>
+        <img src="{{ news.image }}"/>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

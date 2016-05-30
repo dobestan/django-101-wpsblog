@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
 
-from wpsblog.views import home, room, news
+from wpsblog.views import *
 
 
 urlpatterns = [

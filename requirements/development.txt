@@ -1,2 +1,3 @@
 -r production.txt
 ipython
+django-debug-toolbar

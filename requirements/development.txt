@@ -2,3 +2,4 @@
 ipython
 django-debug-toolbar
 pep8
+django-extensions

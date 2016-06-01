@@ -4,8 +4,13 @@
 {% block content %}
 <h1>Naver Posts</h1>
 <p>{{ naver_posts | length }} 개의 네이버 포스트에 대한 결과입니다.</p>
+
 {% if keyword %}
 <p><b>{{ keyword }}</b> 로 크롤링된 네이버 포스트입니다.</p>
+{% endif %}
+
+{% if query %}
+<p><b>{{ query }}</b> 가 제목에 포함된 네이버 포스트입니다.</p>
 {% endif %}
 
 <ul>

@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 
 from django.core.management.base import BaseCommand
 
+from wpsblog.models import NaverPost
+
 
 class Command(BaseCommand):
 
@@ -35,3 +37,10 @@ class Command(BaseCommand):
 
             thumbnail_image_element = post_element.select_one(".sh_blog_thumbnail")
             thumbnail_image_url = thumbnail_image_element.get("src")
+
+            NaverPost.objects.create(
+                title=title,
+                original_url=url,
+                content=content,
+                thumbnail_image_url=thumbnail_image_url,
+            )

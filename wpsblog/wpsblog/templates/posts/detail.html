@@ -4,4 +4,9 @@
 {% block content %}
 <h1>{{ post.title }}</h1>
 <p>{{ post.content }}</p>
+
+<ul>
+  <li><a href="/posts/{{ post.id }}/edit/">Edit</a></li>
+  <li><a href="/posts/{{ post.id }}/delete/">Delete</a></li>
+</ul>
 {% endblock %}

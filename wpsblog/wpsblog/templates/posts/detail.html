@@ -6,7 +6,7 @@
 <p>{{ post.content }}</p>
 
 <ul>
-  <li><a href="/posts/{{ post.id }}/edit/">Edit</a></li>
-  <li><a href="/posts/{{ post.id }}/delete/">Delete</a></li>
+  <li><a href="{% url "posts:edit" post_id=post.id %}">Edit</a></li>
+  <li><a href="{% url "posts:delete" post_id=post.id %}">Delete</a></li>
 </ul>
 {% endblock %}

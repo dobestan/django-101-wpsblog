@@ -9,5 +9,5 @@ def delete(request, post_id):
     post.delete()
 
     return redirect(
-        reverse("post-list"),
+        reverse("posts:list"),
     )

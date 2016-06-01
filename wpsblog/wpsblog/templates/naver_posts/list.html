@@ -3,6 +3,7 @@
 
 {% block content %}
 <h1>Naver Posts</h1>
+<p>{{ naver_posts | length }} 개의 네이버 포스트에 대한 결과입니다.</p>
 
 <ul>
   {% for naver_post in naver_posts %}

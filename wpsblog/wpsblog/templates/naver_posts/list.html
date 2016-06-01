@@ -9,7 +9,10 @@
   <li>
     <img src="{{ naver_post.thumbnail_image_url }}" alt="{{ naver_post.title }}"/>
     <h2>{{ naver_post.title }}</h2>
-    <p>{{ naver_post.content }}</p>
+    <p>
+      <b>{{ naver_post.keyword }}</b>
+      {{ naver_post.content }}
+    </p>
     <a href="{{ naver_post.original_url }}" target="_blank">원문 바로가기</a>
   </li>
   {% endfor %}

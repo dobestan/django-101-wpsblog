@@ -18,6 +18,8 @@ urlpatterns = [
     url(r'^posts/new/$', new, name="post-new"),
     url(r'^posts/create/$', create, name="post-create"),
     url(r'^posts/(?P<post_id>\d+)/$', detail, name="post-detail"),
+    url(r'^posts/(?P<post_id>\d+)/edit/$', edit, name="post-edit"),
+    url(r'^posts/(?P<post_id>\d+)/update/$', update, name="post-update"),
 
     url(r'^naver/posts/$', naver_posts_list, name="naver-posts-list"),
 ]

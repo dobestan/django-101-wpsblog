@@ -1,0 +1,6 @@
+<form action="{{ action }}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="title" placeholder="제목" value="{% if post %}{{ post.title }}{% endif %}">
+  <input type="text" name="content" placeholder="본문" value="{% if post %}{{ post.content }}{% endif %}">
+  <input type="submit" value="publish">
+</form>

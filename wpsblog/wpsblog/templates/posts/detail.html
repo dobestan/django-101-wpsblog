@@ -14,7 +14,7 @@
 <h2>Comments ( {{ post.comment_set.count }} )</h2>
 <ul>
   {% for comment in post.comment_set.all %}
-  <li>{{ comment.content }}</li>
+  <li id="comment-{{ comment.id }}">{{ comment.content }}</li>
   {% endfor %}
 </ul>
 {% endblock %}

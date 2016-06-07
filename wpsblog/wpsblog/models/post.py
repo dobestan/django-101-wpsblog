@@ -2,7 +2,14 @@ from django.db import models
 from django.core.urlresolvers import reverse
 
 
+class PostManager(models.Manager):
+    pass
+
+
 class Post(models.Model):
+
+    objects = PostManager()
+
     title = models.CharField(
         max_length=120,
     )

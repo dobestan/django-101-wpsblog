@@ -7,6 +7,9 @@ class Post(models.Model):
         max_length=120,
     )
     content = models.TextField()
+    is_public = models.BooleanField(
+        default=True,
+    )
 
     def __str__(self):
         return self.title

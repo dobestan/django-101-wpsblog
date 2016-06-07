@@ -13,12 +13,18 @@
 
 <h2>Comments ( {{ post.comment_set.count }} )</h2>
 <ul>
-  {% for comment in post.comment_set.all %}
-  <li id="comment-{{ comment.id }}">
-    {{ comment.content }}
-    <a href="{% url "posts:comments-edit" post_id=post.id comment_id=comment.id %}">Edit</a>
-    <a href="{% url "posts:comments-delete" post_id=post.id comment_id=comment.id %}">Delete</a>
-  </li>
+  {% for post_comment in post.comment_set.all %}
+    {% if comment == post_comment %}
+      <li>
+        <form action="{% url "posts:comments-update" post_id=post.id comment_id=comment.id %}" method="POST">
+          {% csrf_token %}
+          <input type="text" name="content" value="{{ comment.content }}">
+          <input type="submit" value="수정">
+        </form>
+      </li>
+    {% else %}
+      <li id="comment-{{ post_comment.id }}">{{ post_comment.content }}</li>
+    {% endif %}
   {% endfor %}
 </ul>
 

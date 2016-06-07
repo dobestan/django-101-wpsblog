@@ -14,4 +14,7 @@ urlpatterns = [
 
     # Comments
     url(r'^(?P<post_id>\d+)/comments/create/$', comments_create, name="comments-create"),
+    url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/edit/$', comments_edit, name="comments-edit"),
+    url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/update/$', comments_update, name="comments-update"),
+    url(r'^(?P<post_id>\d+)/comments/(?P<comment_id>\d+)/delete/$', comments_delete, name="comments-delete"),
 ]

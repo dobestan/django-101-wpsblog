@@ -17,4 +17,13 @@
   <li id="comment-{{ comment.id }}">{{ comment.content }}</li>
   {% endfor %}
 </ul>
+
+
+<h2>New Comment</h2>
+<form action="/posts/{{ post.id }}/comments/create/" method="POST">
+  {% csrf_token %}
+  <input type="text" name="content" placeholder="댓글">
+  <input type="submit" value="댓글 달기">
+</form>
+
 {% endblock %}

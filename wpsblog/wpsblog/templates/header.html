@@ -6,7 +6,7 @@
     <li><a href="{% url "news" %}">News</a></li>
 
     {% if request.user.is_authenticated %}
-      <p>{{ request.user.username }} 으로 로그인 되었습니다.</p>
+      <li><a href="{% url "auth:mypage" %}">{{ request.user.username }}</a></li>
       <li><a href="{% url "auth:logout" %}">Logout</a></li>
     {% else %}
       <li><a href="{% url "auth:login" %}">Login</a></li>

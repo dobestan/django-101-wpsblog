@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+{% load staticfiles %}<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static "css/application.css" %}">
+  <script src="{% static "js/application.js" %}"></script>
 </head>
 <body>
   {% include "header.html" %}

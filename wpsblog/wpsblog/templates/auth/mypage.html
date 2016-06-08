@@ -4,4 +4,14 @@
 {% block content %}
 <h1>My Page</h1>
 <p>{{ request.user.username }} 의 마이페이지 입니다.</p>
+
+
+<h2>내가 쓴 글 ( {{ request.user.post_set.count }} )</h2>
+<ul>
+  {% for post in request.user.post_set.all %}
+  <li>
+    <a href="{% url "posts:detail" post_id=post.id %}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
 {% endblock %}

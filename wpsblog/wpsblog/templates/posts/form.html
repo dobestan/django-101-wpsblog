@@ -1,6 +1,7 @@
-<form action="{{ action }}" method="POST">
+<form action="{{ action }}" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <input type="text" name="title" placeholder="제목" value="{% if post %}{{ post.title }}{% endif %}">
   <input type="text" name="content" placeholder="본문" value="{% if post %}{{ post.content }}{% endif %}">
+  <input type="file" name="image">
   <input type="submit" value="publish">
 </form>

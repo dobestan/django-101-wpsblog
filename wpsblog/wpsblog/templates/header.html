@@ -5,7 +5,11 @@
     <li><a href="{% url "about" %}">About</a></li>
     <li><a href="{% url "news" %}">News</a></li>
 
-    <li><a href="{% url "auth:login" %}">Login</a></li>
-    <li><a href="{% url "auth:signup" %}">Signup</a></li>
+    {% if request.user.is_authenticated %}
+      <p>{{ request.user.username }} 으로 로그인 되었습니다.</p>
+    {% else %}
+      <li><a href="{% url "auth:login" %}">Login</a></li>
+      <li><a href="{% url "auth:signup" %}">Signup</a></li>
+    {% endif %}
   </ul>
 </header>

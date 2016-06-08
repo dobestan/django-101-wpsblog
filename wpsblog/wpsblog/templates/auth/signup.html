@@ -3,4 +3,12 @@
 
 {% block content %}
 <h1>Signup</h1>
+
+<form action="{% url "auth:signup" %}" method="POST">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="username" required>
+  <input type="password" name="password" placeholder="password" required>
+  <input type="email" name="email" placeholder="email" required>
+  <input type="submit" value="회원가입">
+</form>
 {% endblock %}

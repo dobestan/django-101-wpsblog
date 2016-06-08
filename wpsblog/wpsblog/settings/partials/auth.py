@@ -15,3 +15,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+# Custom Authentication URLs
+LOGIN_URL = "/login/"

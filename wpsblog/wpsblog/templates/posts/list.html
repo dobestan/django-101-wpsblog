@@ -6,10 +6,13 @@
 
 <ul>
   {% for post in posts %}
-  <a href="{% url "posts:detail" post_id=post.id %}">
-    <h2>{{ post.title }} <span>({{ post.comment_set.count }})</span></h2>
-  </a>
-  <p>{{ post.content }}</p>
+    <li>
+      <img src="{% if post.image %}{{ post.image.url }}{% else %}http://placehold.it/300x200{% endif %}" alt="{{ post.title }}">
+      <a href="{% url "posts:detail" post_id=post.id %}">
+        <h2>{{ post.title }} <span>({{ post.comment_set.count }})</span></h2>
+      </a>
+      <p>{{ post.content }}</p>
+    </li>
   {% endfor %}
 </ul>
 {% endblock %}

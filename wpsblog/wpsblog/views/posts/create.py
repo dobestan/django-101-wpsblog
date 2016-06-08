@@ -9,6 +9,7 @@ def create(request):
     image = request.FILES.get("image")
 
     post = Post.objects.create(
+        user=request.user,
         title=title,
         content=content,
         image=image,

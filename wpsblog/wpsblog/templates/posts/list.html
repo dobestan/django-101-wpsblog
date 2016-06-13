@@ -8,7 +8,7 @@
   {% for post in posts %}
     <li>
       <img src="{{ post.get_image_url }}" alt="{{ post.title }}">
-      <a href="{% url "posts:detail" post_id=post.id %}">
+      <a href="{% url "posts:detail" pk=post.id %}">
         <h2>{{ post.title }} <span>({{ post.comment_set.count }})</span></h2>
       </a>
       <p>{{ post.content }}</p>

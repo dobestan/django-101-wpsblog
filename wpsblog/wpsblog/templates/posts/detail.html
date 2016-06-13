@@ -15,6 +15,7 @@
 <ul>
   {% for comment in post.comment_set.all %}
   <li id="comment-{{ comment.id }}">
+    {{ comment.user.username }} -
     {{ comment.content }}
     <a href="{% url "posts:comments-edit" post_id=post.id comment_id=comment.id %}">Edit</a>
     <a href="{% url "posts:comments-delete" post_id=post.id comment_id=comment.id %}">Delete</a>

@@ -1,5 +1,5 @@
 from .list import PostListView
-from .detail import detail
+from .detail import PostDetailView
 from .new import new
 from .create import create
 from .edit import edit

@@ -4,7 +4,7 @@ from wpsblog.views.posts import *
 
 
 urlpatterns = [
-    url(r'^$', list, name="list"),
+    url(r'^$', PostListView.as_view(), name="list"),
     url(r'^new/$', new, name="new"),
     url(r'^create/$', create, name="create"),
     url(r'^(?P<post_id>\d+)/$', detail, name="detail"),

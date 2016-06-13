@@ -1,4 +1,4 @@
-from .home import home
+from .home import HomeView
 from .about import about
 from .room import room
 from .news import news

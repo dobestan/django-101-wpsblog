@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>DashBoard</h1>
+
+<a href="{{ bitlink.original_url }}" target="_blank">{{ bitlink.original_url }}</a>
+<a href="{{ bitlink.get_absolute_url }}" target="_blank">{{ bitlink.get_absolute_url }}</a>
+
+<ul>
+  {% for log in bitlink.bitlinklog_set.all %}
+  <li>
+    <p>
+      <ul>
+        <li>referer: {{ log.http_referer }}</li>
+        <li>ip: {{ log.http_remote_address }}</li>
+        <li>user-agent: {{ log.http_user_agent }}</li>
+        <li>time: {{ log.created_at }}</li>
+      </ul>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

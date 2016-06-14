@@ -10,7 +10,7 @@
 <ul>
   {% for post in request.user.post_set.all %}
   <li>
-    <a href="{% url "posts:detail" post_id=post.id %}">{{ post.title }}</a>
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
   </li>
   {% endfor %}
 </ul>
@@ -23,7 +23,7 @@
     <p>
       <a href="{{ comment.get_absolute_url }}">{{ comment.content }}</a>
       on
-      <a href="{% url "posts:detail" post_id=comment.post.id %}">{{ comment.post.title }}</a>
+      <a href="{{ comment.post.get_absolute_url }}">{{ comment.post.title }}</a>
     </p>
   </li>
   {% endfor %}

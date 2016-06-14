@@ -6,6 +6,16 @@
 <p>{{ request.user.username }} 의 마이페이지 입니다.</p>
 
 
+<h2>나의 bitlink ( {{ request.user.bitlink_set.count }} )</h2>
+<ul>
+  {% for bitlink in request.user.bitlink_set.all %}
+  <li>
+    <a href="{{ bitlink.get_absolute_url }}" target="_blank">{{ bitlink.original_url }} ( {{ bitlink.shorten_hash }} )</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
 <h2>내가 쓴 글 ( {{ request.user.post_set.count }} )</h2>
 <ul>
   {% for post in request.user.post_set.all %}

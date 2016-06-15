@@ -11,6 +11,7 @@ urlpatterns = [
 
     url(r'^$', HomeView.as_view(), name="home"),
     url(r'^about/us/$', about, name="about"),
+    url(r'^pricing/$', PricingView.as_view(), name="pricing"),
     url(r'^rooms/(?P<room_id>\d+)/$', room, name="room"),
     url(r'^news/$', news, name="news"),
 

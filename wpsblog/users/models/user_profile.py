@@ -16,3 +16,10 @@ class UserProfile(models.Model):
         blank=True,
         null=True,
     )
+
+    is_phonenumber_exist = models.BooleanField(
+        default=False,
+    )
+    is_signup_sms_sent = models.BooleanField(
+        default=False,
+    )

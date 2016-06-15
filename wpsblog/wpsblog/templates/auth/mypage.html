@@ -6,6 +6,12 @@
 <p>{{ request.user.username }} 의 마이페이지 입니다.</p>
 
 
+<ul>
+  <li>phonenumber: {{ request.user.userprofile.phonenumber }}</li>
+  <li>address: {{ request.user.userprofile.address }}</li>
+</ul>
+
+
 <h2>나의 bitlink ( {{ request.user.bitlink_set.count }} )</h2>
 <ul>
   {% for bitlink in request.user.bitlink_set.all %}

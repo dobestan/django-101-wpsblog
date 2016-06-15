@@ -17,11 +17,17 @@ class SignupView(View):
         username = request.POST.get("username")
         password = request.POST.get("password")
         email = request.POST.get("email")
+        phonenumber = request.POST.get("phonenumber")
+        address = request.POST.get("address")
 
         user = User.objects.create_user(
             username=username,
             password=password,
             email=email,
         )
+
+        user.userprofile.phonenumber = phonenumber
+        user.userprofile.address = address
+        user.userprofile.save()
 
         return redirect(reverse("auth:login"))
